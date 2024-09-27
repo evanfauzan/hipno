@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Van Project Portfolio</title>
+    <style>
+        /* Reset some default styling */
+        body, h1, h2, h3, p, ul, li, form {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Global styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            line-height: 1.6;
+            background-color: #f0f8ff;
+        }
+
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(to right, #ff7e5f, #feb47b);
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+
+        header h1 {
+            margin: 0;
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+        }
+
+        nav ul li {
+            margin: 0 15px;
+        }
+
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+            transition: color 0.3s ease;
+        }
+
+        nav ul li a:hover {
+            color: #333;
+        }
+
+        /* About Section */
+        #about {
+            padding: 50px 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        .profile {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .profile-item {
+            flex: 1;
+            max-width: 300px;
+            margin: 0 10px;
+            padding: 20px;
+            background: #fffae3;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .profile-item:hover {
+            transform: scale(1.05);
+        }
+
+        .profile-item img {
+            width: 150px;
+            border-radius: 50%;
+            margin-bottom: 15px;
+        }
+
+        .profile-item h3 {
+            margin-bottom: 10px;
+            color: #ff7e5f;
+        }
+
+        /* Portfolio Section */
+        #portfolio {
+            padding: 50px 0;
+            background: #f9f9f9;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .gallery-item {
+            position: relative;
+            width: calc(33% - 20px);
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item img {
+            width: 100%;
+            display: block;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            padding: 10px;
+            text-align: center;
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+
+        /* Contact Section */
+        #contact {
+            padding: 50px 0;
+            background: #fff;
+            text-align: center;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            max-width: 600px;
+            margin: auto;
+        }
+
+        form label {
+            font-size: 18px;
+            color: #333;
+        }
+
+        form input, form textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        form button {
+            padding: 10px;
+            border: none;
+            background: #ff7e5f;
+            color: #fff;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        form button:hover {
+            background: #feb47b;
+        }
+
+        /* Footer */
+        footer {
+            background: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+
+        /* Popup Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            transition: opacity 0.3s ease;
+        }
+
+        .modal-content {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+        }
+
+        .modal-content h2 {
+            margin-top: 0;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            cursor: pointer;
+            font-size: 24px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Z-Van Project</h1>
+            <nav>
+                <ul>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#portfolio">Portfolio</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <div class="profile">
+                <div class="profile-item">
+                    <img src="evan.jpg" alt="Evan Fauzan Samiswara">
+                    <h3>Evan Fauzan Samiswara</h3>
+                    <p>Evan is a creative web designer with a passion for creating visually stunning and user-friendly websites. His expertise lies in crafting engaging designs and seamless user experiences.</p>
+                </div>
+                <div class="profile-item">
+                    <img src="zidan.jpg" alt="Muhammad Zidan Ramadhan">
+                    <h3>Muhammad Zidan Ramadhan</h3>
+                    <p>Zidan specializes in innovative web solutions and front-end development. His focus is on delivering high-performance and scalable web applications with a keen eye for detail.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="portfolio">
+        <div class="container">
+            <h2>Our Portfolio</h2>
+            <div class="gallery">
+                <div class="gallery-item" data-modal="modal1">
+                    <img src="portfolio1.jpg" alt="Project 1">
+                    <div class="gallery-overlay">
+                        <p>Project 1 Description</p>
+                    </div>
+                </div>
+                <div class="gallery-item" data-modal="modal2">
+                    <img src="portfolio2.jpg" alt="Project 2">
+                    <div class="gallery-overlay">
+                        <p>Project 2 Description</p>
+                    </div>
+                </div>
+                <!-- Add more items as needed -->
+            </div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <form>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+                
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" required></textarea>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 Z-Van Project. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Project 1</h2>
+            <p>Detailed description of Project 1.</p>
+        </div>
+    </div>
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <span class="modal-close">&times;</span>
+            <h2>Project 2</h2>
+            <p>Detailed description of Project 2.</p>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Modal functionality
+        document.querySelectorAll('.gallery-item').forEach(item => {
+            item.addEventListener('click', function() {
+                const modalId = this.getAttribute('data-modal');
+                document.getElementById(modalId).style.display = 'flex';
+            });
+        });
+
+        document.querySelectorAll('.modal-close').forEach(closeBtn => {
+            closeBtn.addEventListener('click', function() {
+                this.closest('.modal').style.display = 'none';
+            });
+        });
+
+        window.addEventListener('click', function(event) {
+            if (event.target.classList.contains('modal')) {
+                event.target.style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

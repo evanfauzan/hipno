@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-Van Project</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Arial', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        header {
+            background: #0083ff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .hero {
+            height: 100vh;
+            background-image: url('https://cdn.pixabay.com/photo/2013/07/18/20/26/sea-164989_640.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            animation: fadeInDown 2s ease-out;
+        }
+
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            padding: 50px 15px;
+        }
+
+        .profile {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+
+        .profile-card {
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            margin: 20px;
+            width: 300px;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+
+        .profile-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .profile-card img {
+            width: 100%;
+            height: auto;
+        }
+
+        .profile-card h2 {
+            margin: 20px 0;
+        }
+
+        .profile-card p {
+            padding: 0 20px;
+            margin-bottom: 20px;
+            color: #666;
+        }
+
+        .profile-card button {
+            background: #0083ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .profile-card button:hover {
+            background: #005bb5;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            z-index: 2000;
+            border-radius: 10px;
+            width: 80%;
+            max-width: 600px;
+            text-align: center;
+        }
+
+        .popup.active {
+            display: block;
+        }
+
+        .popup button {
+            background: #0083ff;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background 0.3s;
+            margin-top: 20px;
+        }
+
+        .popup button:hover {
+            background: #005bb5;
+        }
+
+        .popup-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+        }
+
+        .popup-overlay.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Z-Van Project</h1>
+</header>
+
+<section class="hero">
+    <h1>Welcome to Z-Van Project</h1>
+</section>
+
+<section class="container">
+    <h2>Our Designers</h2>
+    <div class="profile">
+        <!-- Evan Fauzan Samiswara -->
+        <div class="profile-card">
+            <img src="evan.jpg" alt="Evan Fauzan Samiswara">
+            <h2>Evan Fauzan Samiswara</h2>
+            <p>Lead Designer with a passion for modern and minimalistic design. Evan has over 5 years of experience in the industry.</p>
+            <button onclick="openPopup('evanPopup')">More Info</button>
+        </div>
+
+        <!-- Muhammad Zidan Romadhan -->
+        <div class="profile-card">
+            <img src="zidan.jpg" alt="Muhammad Zidan Romadhan">
+            <h2>Muhammad Zidan Romadhan</h2>
+            <p>A creative visionary with a unique approach to design, blending art with functionality.</p>
+            <button onclick="openPopup('zidanPopup')">More Info</button>
+        </div>
+
+        <!-- Taraka Zubair Gama -->
+        <div class="profile-card">
+            <img src="taraka.jpg" alt="Taraka Zubair Gama">
+            <h2>Taraka Zubair Gama</h2>
+            <p>An expert in user experience design, Taraka focuses on creating intuitive and user-friendly interfaces.</p>
+            <button onclick="openPopup('tarakaPopup')">More Info</button>
+        </div>
+    </div>
+</section>
+
+<div id="evanPopup" class="popup">
+    <h2>Evan Fauzan Samiswara</h2>
+    <p>More detailed information about Evan Fauzan Samiswara, his projects, achievements, and design philosophy.</p>
+    <button onclick="closePopup('evanPopup')">Close</button>
+</div>
+
+<div id="zidanPopup" class="popup">
+    <h2>Muhammad Zidan Romadhan</h2>
+    <p>More detailed information about Muhammad Zidan Romadhan, his projects, achievements, and design philosophy.</p>
+    <button onclick="closePopup('zidanPopup')">Close</button>
+</div>
+
+<div id="tarakaPopup" class="popup">
+    <h2>Taraka Zubair Gama</h2>
+    <p>More detailed information about Taraka Zubair Gama, his projects, achievements, and design philosophy.</p>
+    <button onclick="closePopup('tarakaPopup')">Close</button>
+</div>
+
+<div id="popupOverlay" class="popup-overlay"></div>
+
+<script>
+    function openPopup(popupId) {
+        document.getElementById(popupId).classList.add('active');
+        document.getElementById('popupOverlay').classList.add('active');
+    }
+
+    function closePopup(popupId) {
+        document.getElementById(popupId).classList.remove('active');
+        document.getElementById('popupOverlay').classList.remove('active');
+    }
+</script>
+
+</body>
+</html>

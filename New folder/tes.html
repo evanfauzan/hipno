@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Z-Van Project">
+    <meta name="keywords" content="ahli gigi, Firoz Dental">
+    <title>Ahli Gigi Firoz Dental</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Days+One&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="foto/icon.png" type="image/x-icon">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Days One', sans-serif;
+        }
+        body {
+            background-image: url("foto/FirozDental.png");
+            background-color: #cccccc;
+            font-weight: 400;
+        }
+        .navbar {
+            background-color: #0C90F3;
+            padding: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: large;
+        }
+        .navbar-brand {
+            color: white;
+            text-decoration: none;
+            font-size: larger;
+        }
+        .navbar-nav {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
+        .nav-item {
+            margin: 0 10px;
+        }
+        .nav-link {
+            color: whitesmoke;
+            text-decoration: none;
+            padding: 10px;
+        }
+        .nav-link:hover {
+            background-color: white;
+            border-radius: 50px;
+            color: #0C90F3;
+        }
+        .hamburger {
+            display: none;
+            cursor: pointer;
+        }
+        .hamburger span {
+            display: block;
+            width: 30px;
+            height: 2px;
+            background-color: #fff;
+            margin-bottom: 5px;
+        }
+        .hamburger span:last-child {
+            margin-bottom: 0;
+        }
+        .pertama {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin: 20px auto;
+            background: linear-gradient(to bottom, #45b2fade, #2195f3ea);
+            border-radius: 50px;
+            padding: 20px;
+            text-align: center;
+        }
+        .pertama h1 {
+            background: linear-gradient(to bottom, #45b3fa, #2196f3);
+            border-radius: 30px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            padding: 50px;
+            color: white;
+        }
+        .photo-slide-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            height: 400px;
+            margin: 20px auto;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+        }
+        .photo-slide {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+        .photo-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: filter 0.5s ease-in-out, transform 0.5s ease-in-out;
+        }
+        .photo-slide:hover img {
+            transform: scale(1.05);
+            filter: brightness(80%);
+        }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            background-color: #1e78e1;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            transform: translateY(-50%);
+        }
+        .prev-button { left: 20px; }
+        .next-button { right: 20px; }
+        .garis {
+            border-top: 25px dotted #5c5ee6d7;
+            margin: 20px auto;
+            width: 50%;
+        }
+        .awal {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 20px;
+            padding: 20px;
+            background-color: #5ce1e6d7;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+            font-size: larger;
+        }
+        .carousel-container {
+            width: 100%;
+            overflow: hidden;
+            position: relative;
+            margin: 20px auto;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+        .carousel-item {
+            min-width: 100%;
+            margin: 0 10px;
+        }
+        .carousel-item img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        footer {
+            background-color: #0c8ff3f5;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .row {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .col-12 {
+            flex: 0 0 100%;
+            max-width: 100%;
+        }
+        .social-media {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .social-media a {
+            margin: 10px;
+        }
+        .social-media img {
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            transition: 0.5s;
+        }
+        .social-media img:hover {
+            width: 70px;
+            height: 70px;
+        }
+        .copyright {
+            text-align: center;
+            color: #ffffff;
+            padding: 1rem;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .navbar-nav {
+                display: none;
+            }
+            .hamburger {
+                display: block;
+            }
+            .navbar-nav.show {
+                display: block;
+                position: absolute;
+                top: 50px;
+                right: 0;
+                background-color: #1e78e1;
+                padding: 10px;
+                border-radius: 5px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+                z-index: 2;
+            }
+            .pertama {
+                padding: 20px;
+            }
+            .photo-slide-container {
+                height: 300px;
+            }
+            .nav-button {
+                font-size: 14px;
+                padding: 8px 16px;
+            }
+            .awal {
+                flex-direction: column;
+                margin: auto;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .social-media {
+                flex-direction: column;
+            }
+            .social-media a {
+                margin: 10px 0;
+            }
+            .social-media img {
+                width: 50px;
+                height: 50px;
+            }
+        }
+
+        @media (max-width: 992px) {
+            .container {
+                max-width: 80%;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .container {
+                max-width: 70%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#" class="navbar-brand">Firoz Dental</a>
+        <ul class="navbar-nav">
+            <li class="nav-item"><a href="#" class="nav-link" style="background-color: white; border-radius: 50px; color: #0C90F3;">Home</a></li>
+            <li class="nav-item"><a href="#" class="nav-link">Learn More</a></li>
+            <li class="nav-item"><a href="#foot" class="nav-link">Contacts</a></li>
+        </ul>
+        <div class="hamburger" onclick="toggleNav()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+    <div class="pertama">
+        <h1>Selamat Datang Di Firoz Dental</h1>
+        <a href="https://forms.gle/74AkZ6xjSczw8n8D7"><img src="register.png" alt="Register"></a>
+        <div class="photo-slide-container">
+            <div class="photo-slide">
+                <img src="foto/tes1.jpg" alt="Image 1">
+            </div>
+            <div class="photo-slide">
+                <img src="foto/tes2.jpg" alt="Image 2">
+            </div>
+            <div class="photo-slide">
+                <img src="foto/tes3.jpg" alt="Image 3">
+            </div>
+            <div class="nav-button prev-button" onclick="prevSlide()">←</div>
+            <div class="nav-button next-button" onclick="nextSlide()">→</div>
+        </div>
+    </div>
+
+    <hr class="garis">
+
+    <div class="awal">
+        <div class="fot"><img src="foto/pre1.png" alt="Description 1"></div>
+        <div class="tulisan">
+            <p>Selamat datang di <b>Firoz Dental</b>, tempat di mana kesehatan dan kecantikan gigi Anda menjadi prioritas utama kami...</p>
+        </div>
+    </div>
+
+    <hr class="garis">
+
+    <div class="awal">
+        <div class="tulisan">
+            <p>Di klinik kami, Anda akan menemukan berbagai layanan perawatan gigi yang komprehensif...</p>
+        </div>
+        <div class="fot"><img src="foto/pre2.png" alt="Description 2"></div>
+    </div>
+
+    <div class="carousel-container">
+        <div class="carousel">
+            <div class="carousel-item"><img src="1.jpg" alt="Slide 1"></div>
+            <div class="carousel-item"><img src="2.jpg" alt="Slide 2"></div>
+            <div class="carousel-item"><img src="3.jpg" alt="Slide 3"></div>
+            <div class="carousel-item"><img src="4.jpg" alt="Slide 4"></div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="social-media">
+                <a href="#"><img src="foto/facebook.png" alt="Facebook"></a>
+                <a href="#"><img src="foto/twitter.png" alt="Twitter"></a>
+                <a href="#"><img src="foto/instagram.png" alt="Instagram"></a>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Firoz Dental. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        let currentSlide = 0;
+
+        function showSlide(index) {
+            const slides = document.querySelectorAll('.photo-slide');
+            if (index >= slides.length) currentSlide = 0;
+            else if (index < 0) currentSlide = slides.length - 1;
+            else currentSlide = index;
+
+            slides.forEach((slide, i) => {
+                slide.style.transform = `translateX(${(i - currentSlide) * 100}%)`;
+            });
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function prevSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function toggleNav() {
+            document.querySelector('.navbar-nav').classList.toggle('show');
+            document.querySelector('.hamburger').classList.toggle('active');
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSlide(currentSlide);
+        });
+    </script>
+</body>
+</html>

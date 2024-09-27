@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="author" content="Z-Van Project" />
+    <title>Hipnotreat</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- Tambahkan stylesheet baru untuk popup login -->
+    <link rel="stylesheet" href="login-popup2.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Days+One&family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <meta
+      name="description"
+      content="Temukan solusi untuk kesadaran dan keseimbangan dengan hipnoterapi di Jakarta. Kami menyediakan terapi hipnosis yang efektif dan aman untuk membantu Anda mencapai tujuan Anda."
+    />
+    <link rel="shortcut icon" href="foto/icon.png" type="image/x-icon" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <a href="#" class="navbar-brand">Hipnotreat</a>
+      <div class="hamburger" onclick="toggleNav()">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <ul class="navbar-nav" id="nav-list">
+        <li class="nav-item">
+          <a href="index.html" class="nav-link">Beranda</a>
+        </li>
+        <li class="nav-item">
+          <a href="#services" class="nav-link">Layanan</a>
+        </li>
+        <li class="nav-item">
+          <a href="index4.html" class="nav-link active">Kursus</a>
+        </li>
+        <li class="nav-item">
+          <a href="index3.html" class="nav-link">Tentang Kami</a>
+        </li>
+        <li class="nav-item"><a href="#terahir" class="nav-link">Kontak</a></li>
+        <li class="nav-item" id="loginButton">
+          <a href="#" class="nav-link" onclick="showLoginPopup()">Login</a>
+        </li>
+        <li class="nav-item" id="logoutButton" style="display: none">
+          <a href="#" class="nav-link" onclick="logout()">Logout</a>
+        </li>
+      </ul>
+    </nav>
+
+    <section class="kursus-advanced">
+      <h1 class="kursus-advanced__title">Kursus Advance</h1>
+
+      <div class="kursus-advanced__video-container">
+        <div
+          class="kursus-advanced__video-item"
+          onclick="openAdvancedPopup('Orw-CfTnz60')"
+        >
+          <img src="ad1.png" alt="Video 1" class="kursus-advanced__thumbnail" />
+          <p class="kursus-advanced__description">
+            Teknik Hipnoterapi Lanjutan untuk Mengatasi Kecemasan
+          </p>
+        </div>
+        <div
+          class="kursus-advanced__video-item kursus-advanced__video-item--locked"
+          onclick="checkLoginAndOpenVideo('CyPK6wLYZG4')"
+        >
+          <img src="ad1.png" alt="Video 2" class="kursus-advanced__thumbnail" />
+          <p class="kursus-advanced__description">
+            Metode Hipnosis untuk Meningkatkan Performa Atlet
+          </p>
+        </div>
+        <div
+          class="kursus-advanced__video-item kursus-advanced__video-item--locked"
+          onclick="checkLoginAndOpenVideo('a7RVZLtxIZI')"
+        >
+          <img src="ad1.png" alt="Video 3" class="kursus-advanced__thumbnail" />
+          <p class="kursus-advanced__description">
+            Hipnoterapi untuk Manajemen Stres dan Relaksasi Mendalam
+          </p>
+        </div>
+        <div
+          class="kursus-advanced__video-item kursus-advanced__video-item--locked"
+          onclick="checkLoginAndOpenVideo('a7RVZLtxIZI')"
+        >
+          <img src="ad1.png" alt="Video 3" class="kursus-advanced__thumbnail" />
+          <p class="kursus-advanced__description">
+            Hipnoterapi untuk Manajemen Stres dan Relaksasi Mendalam
+          </p>
+        </div>
+        <div
+          class="kursus-advanced__video-item kursus-advanced__video-item--locked"
+          onclick="checkLoginAndOpenVideo('a7RVZLtxIZI')"
+        >
+          <img src="ad1.png" alt="Video 3" class="kursus-advanced__thumbnail" />
+          <p class="kursus-advanced__description">
+            Hipnoterapi untuk Manajemen Stres dan Relaksasi Mendalam
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="kursus-advanced__popup-overlay" id="kursus-advanced-popup">
+      <div class="kursus-advanced__popup-content">
+        <span
+          class="kursus-advanced__popup-close"
+          onclick="closeAdvancedPopup()"
+          >&times;</span
+        >
+        <div class="kursus-advanced__video-wrapper">
+          <iframe
+            id="kursus-advanced-iframe"
+            src=""
+            frameborder="0"
+            allowfullscreen
+          ></iframe>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tambahkan popup login -->
+    <div class="login-popup" id="loginPopup">
+      <div class="login-popup-content">
+        <span class="close-popup" onclick="closeLoginPopup()">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input type="text" id="username" placeholder="Username" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+    <footer class="footer-content" id="terahir">
+      <h3>Hubungi Kami</h3>
+      <p>
+        Kami siap membantu Anda dengan semua kebutuhan hipnoterapi. Jangan ragu
+        untuk menghubungi kami kapan saja.
+      </p>
+      <div class="social-media">
+        <a href="https://www.facebook.com/masyudi.yudi.33821?mibextid=ZbWKwL"
+          ><img src="facebook.png" alt="Facebook"
+        /></a>
+        <a href="https://www.tiktok.com/@hipnotreat5?_t=8q498Mu7f5m&_r=1"
+          ><img src="tiktok.png" alt="TikTok"
+        /></a>
+        <a
+          href="https://www.instagram.com/ahli_gigi_firoz_dental?igsh=MWtjZWNhdXM5bGRtYQ=="
+          ><img src="instagram.png" alt="Instagram"
+        /></a>
+        <a href="http://wa.me//+6285718691244"
+          ><img src="whatsapp.png" alt="whatsapp"
+        /></a>
+        <a href="https://www.youtube.com/@Hipnotreat"
+          ><img src="youtube.png" alt="map"
+        /></a>
+      </div>
+    </footer>
+
+    <div class="footer-bottom">
+      <p>
+        &copy; 2024 Firoz Dental. All Rights Reserved. Designed by
+        <a href="#">Z-Van Project</a>
+      </p>
+    </div>
+
+    <script src="main2.js"></script>
+    <!-- Tambahkan file JavaScript baru untuk login -->
+    <script src="login2.js"></script>
+  </body>
+</html>

@@ -1,0 +1,118 @@
+
+.login-popup {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    animation: fade-in 0.5s ease forwards;
+}
+
+.login-popup-content {
+    background-color: #1e1e1e;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #444;
+    width: 300px;
+    border-radius: 10px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+    animation: bounce-in 0.5s ease forwards;
+}
+.login-popup h2 {
+    color: #fff;
+}
+
+@keyframes fade-in {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.3);
+        opacity: 0;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+.close-popup {
+    color: #aaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: color 0.3s;
+}
+
+.close-popup:hover,
+.close-popup:focus {
+    color: #fff;
+}
+
+#loginForm input {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #555;
+    border-radius: 5px;
+    background-color: #333;
+    color: #fff;
+    transition: border-color 0.3s;
+}
+
+#loginForm input:focus {
+    border-color: #4CAF50;
+    outline: none;
+}
+
+#loginForm button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#loginForm button:hover {
+    background-color: #45a049;
+}
+
+.kursus-advanced__video-item.kursus-advanced__video-item--locked {
+    pointer-events: none;
+    opacity: 0.6;
+    cursor: not-allowed;
+    position: relative;
+    transition: opacity 0.3s;
+}
+
+.kursus-advanced__video-item.kursus-advanced__video-item--locked::after {
+    content: '🔒';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 24px;
+    z-index: 1;
+}
+
+.logged-in .kursus-advanced__video-item.kursus-advanced__video-item--locked {
+    pointer-events: auto;
+    opacity: 1;
+    cursor: pointer;
+}
