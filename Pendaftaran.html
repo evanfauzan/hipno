@@ -6,6 +6,7 @@
     <meta name="author" content="Z-Van Project" />
     <title>Hipnotreat</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login-popup2.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -31,6 +32,41 @@
         <span></span>
         <span></span>
       </div>
+      <ul>
+        <li id="loginButton">
+          <a
+            href="#"
+            onclick="showLoginPopup()"
+            style="
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #007bff;
+              color: white;
+              border-radius: 5px;
+              text-decoration: none;
+              border: none;
+            "
+            >Login</a
+          >
+        </li>
+        <li id="logoutButton" style="display: none">
+          <a
+            href="#"
+            onclick="logout()"
+            style="
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #dc3545;
+              color: white;
+              border-radius: 5px;
+              text-decoration: none;
+              border: none;
+            "
+            >Logout</a
+          >
+        </li>
+      </ul>
+
       <ul class="navbar-nav" id="nav-list">
         <li class="nav-item">
           <a href="index.html" class="nav-link">Beranda</a>
@@ -39,9 +75,11 @@
           <a href="layanan.html" class="nav-link">Layanan</a>
         </li>
         <li class="nav-item">
-          <a href="#" class="nav-link active">Kursus</a>
+          <a href="Kursus.html" class="nav-link">Kursus</a>
         </li>
-        <li class="nav-item"><a href="#faq" class="nav-link">FAQ</a></li>
+        <li class="nav-item">
+          <a href="#" class="nav-link active">Pendaftaran</a>
+        </li>
         <li class="nav-item">
           <a href="TentangKami.html" class="nav-link">Tentang Kami</a>
         </li>
@@ -49,7 +87,7 @@
       </ul>
     </nav>
     <div class="kontainer">
-      <div class="kartu">
+      <div class="kartu" style="background-color: #2e2e2e">
         <img src="perunggu.png" alt="Kursus Advance" class="gambar" />
         <div class="konten">
           <h2 class="judul">Kursus Advance</h2>
@@ -81,7 +119,7 @@
           </a>
         </div>
       </div>
-      <div class="kartu">
+      <div class="kartu" style="background-color: #2e2e2e">
         <img src="perak.png" alt="Kursus Master" class="gambar" />
         <div class="konten">
           <h2 class="judul">Kursus Master</h2>
@@ -113,7 +151,7 @@
           </a>
         </div>
       </div>
-      <div class="kartu">
+      <div class="kartu" style="background-color: #2e2e2e">
         <img src="emas.png" alt="Kursus Ultimate" class="gambar" />
         <div class="konten">
           <h2 class="judul">Kursus Instruktur</h2>
@@ -148,7 +186,33 @@
         </div>
       </div>
     </div>
-
+    <div align="center">
+      <div>
+        <a
+          href="SURAT PERNYATAAN SYARAT DAN KETENTUAN PELATIHAN HIPNOTIS.docx"
+          class="cta-button download"
+          id="downloadBtn"
+          onclick="startDownload(event)"
+        >
+          <span class="btn-text">SYARAT DAN KETENTUAN</span>
+          <span class="download-icon"></span>
+        </a>
+      </div>
+    </div>
+    <br />
+    <div
+      class="note-container animate__animated animate__fadeInUp"
+      style="margin: 10px"
+    >
+      <div class="note">
+        <h2>Perhatian!</h2>
+        <p>
+          Sebelum melakukan transaksi, diharapkan membaca syarat dan ketentuan
+          yang berlaku dan membaca panduan transaksi.
+        </p>
+      </div>
+    </div>
+    <br />
     <section class="proses-daftar animate__animated animate__fadeInUp">
       <h2>Proses Pendaftaran</h2>
       <div class="langkah-daftar">
@@ -212,7 +276,26 @@
         <a href="#">Z-Van Project</a>
       </p>
     </div>
+    <!-- Tambahkan popup login -->
+    <div class="login-popup" id="loginPopup">
+      <div class="login-popup-content">
+        <span class="close-popup" onclick="closeLoginPopup()">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input type="text" id="username" placeholder="Username" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
     <script src="main2.js"></script>
+    <script src="login2.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/wow.js/1.1.2/wow.min.js"></script>
     <script>
       new WOW().init();

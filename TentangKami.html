@@ -6,6 +6,7 @@
     <meta name="author" content="Z-Van Project" />
     <title>Hipnotreat</title>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="login-popup2.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -23,7 +24,40 @@
     <nav class="navbar">
       <a href="#" class="navbar-brand">Hipnotreat</a>
 
-      <ul class="navbar-nav" id="nav-list"></ul>
+      <ul>
+        <li id="loginButton">
+          <a
+            href="#"
+            onclick="showLoginPopup()"
+            style="
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #007bff;
+              color: white;
+              border-radius: 5px;
+              text-decoration: none;
+              border: none;
+            "
+            >Login</a
+          >
+        </li>
+        <li id="logoutButton" style="display: none">
+          <a
+            href="#"
+            onclick="logout()"
+            style="
+              display: inline-block;
+              padding: 10px 20px;
+              background-color: #dc3545;
+              color: white;
+              border-radius: 5px;
+              text-decoration: none;
+              border: none;
+            "
+            >Logout</a
+          >
+        </li>
+      </ul>
     </nav>
     <div class="biography-section">
       <div class="biography-content">
@@ -236,6 +270,25 @@
         <a href="#">Z-Van Project</a>
       </p>
     </div>
+    <!-- Tambahkan popup login -->
+    <div class="login-popup" id="loginPopup">
+      <div class="login-popup-content">
+        <span class="close-popup" onclick="closeLoginPopup()">&times;</span>
+        <h2>Login</h2>
+        <form id="loginForm">
+          <input type="text" id="username" placeholder="Username" required />
+          <input
+            type="password"
+            id="password"
+            placeholder="Password"
+            required
+          />
+          <button type="submit">Login</button>
+        </form>
+      </div>
+    </div>
+
     <script src="main2.js"></script>
+    <script src="login2.js"></script>
   </body>
 </html>

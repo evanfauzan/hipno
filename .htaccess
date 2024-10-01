@@ -1,0 +1,28 @@
+RewriteEngine On
+        RewriteCond %
+{
+    REQUEST_FILENAME
+}
+!-f
+        RewriteCond %
+{
+    REQUEST_FILENAME
+}
+!-d
+        RewriteRule ^
+    (.*) $ $1.html[L]
+
+#Tambahkan aturan berikut untuk menangani permintaan tanpa ekstensi.html
+        RewriteCond
+        %
+{
+    REQUEST_FILENAME
+}
+!-f
+        RewriteCond %
+{
+    REQUEST_FILENAME
+}
+!-d
+        RewriteRule ^
+    ([^\.] +) $ $1.html[NC, L]

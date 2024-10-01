@@ -154,7 +154,24 @@ body {
     /* Tambahkan lebih banyak jika diperlukan */
 }
 
+/* Tambahkan gaya untuk tombol dengan animasi yang menarik dan bergerak */
+#loginButton a, #logoutButton a {
+    transition: background-color 0.3s ease-out, transform 0.3s ease-out, box-shadow 0.3s ease-out; /* Animasi saat hover */
+}
 
+/* Gaya saat hover untuk tombol login */
+#loginButton a:hover {
+    background-color: #0056b3; /* Warna saat hover untuk login */
+    transform: scale(1.05); /* Efek zoom */
+    box-shadow: 0 4px 8px rgba(0, 86, 179, 0.2); /* Efek bayangan */
+}
+
+/* Gaya saat hover untuk tombol logout */
+#logoutButton a:hover {
+    background-color: #c82333; /* Warna saat hover untuk logout */
+    transform: scale(1.05); /* Efek zoom */
+    box-shadow: 0 4px 8px rgba(200, 35, 51, 0.2); /* Efek bayangan */
+}
 /* Hero Section */
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('hero-bg.jpg');
@@ -166,7 +183,20 @@ body {
   justify-content: center;
   text-align: center;
   color: white;
+
   animation: fadeIn 1s ease-out;
+  position: relative;
+  overflow: hidden;
+}
+
+.latar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1; /* Pastikan video berada di belakang konten */
 }
 
 @keyframes fadeIn {
@@ -938,15 +968,28 @@ body {
   padding: 20px;
   text-align: center;
   border-radius: 30px;
-  animation: fadeIn 1s ease 0.5s both;
+  animation: slideInFromTop 1s ease 0.5s both;
+  font-family: 'Roboto', sans-serif; /* Mengubah font untuk tampilan modern */
+  letter-spacing: 1px; /* Menambahkan jarak antar huruf */
 }
 
 .header-section h1 {
-  font-size: 36px;
+  font-size: 48px; /* Meningkatkan ukuran font untuk lebih menonjol */
   margin-bottom: 10px;
-  animation: fadeIn 1s ease 1s both;
+  animation: slideInFromTop 1s ease 1s both;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Menambahkan bayangan teks untuk efek kedalaman */
 }
 
+@keyframes slideInFromTop {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
 .content-section {
   padding: 40px;
 }
@@ -1329,7 +1372,7 @@ html {
 }
 
 .kartu {
-    background-color: #1e1e1e;
+     background-color: #2e2e2e;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
@@ -1395,6 +1438,10 @@ html {
     .kontainer {
         flex-direction: column;
         align-items: center;
+    }
+    .gambar {
+        width: 100%; /* Membuat gambar responsif */
+        height: auto; /* Mempertahankan rasio aspek gambar */
     }
 }
 .contenitore-video {
@@ -1868,4 +1915,55 @@ html {
 
 .materi-list li {
   margin-bottom: 5px;
+}
+.kelompok {
+    display: flex;
+    justify-content: center; /* Meratakan gambar */
+    flex-wrap: nowrap; /* Mengubah untuk mencegah gambar berpindah ke bawah */
+    margin: 20px 0;
+    gap: 10px;
+}
+
+.kelompok a {
+    transition: transform 0.3s, box-shadow 0.3s; /* Animasi */
+    
+}
+
+.kelompok img {
+    width: 100%; /* Mengatur lebar maksimum menjadi 30% */
+    height: auto; /* Menjaga rasio aspek */
+    border-radius: 10px; /* Sudut melengkung */
+    transition: transform 0.3s ease; /* Tambahkan transisi untuk animasi */
+    margin: 10px; /* Tambahkan margin untuk jarak antar gambar */
+}
+.kelompok img:hover{
+  transform: scale(1.01);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Media Query untuk layar kecil */
+@media (max-width: 768px) {
+    .kelompok {
+        flex-direction: column; /* Mengubah arah menjadi kolom */
+        align-items: center; /* Rata tengah */
+    }
+}
+/* Tambahkan ke style.css */
+.note-container {
+    background-color: #f9f9f9; /* Warna latar belakang */
+    border: 1px solid #ddd; /* Garis batas */
+    border-radius: 8px; /* Sudut melengkung */
+    padding: 20px; /* Ruang dalam */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Bayangan */
+    margin: 20px 0; /* Margin atas dan bawah */
+}
+
+.note h2 {
+    color: #d9534f; /* Warna judul */
+    font-family: 'Days One', sans-serif; /* Font judul */
+}
+
+.note p {
+    color: #333; /* Warna teks */
+    line-height: 1.6; /* Jarak antar baris */
 }

@@ -1,4 +1,3 @@
-
 function toggleNav() {
     var navList = document.getElementById('nav-list');
     if (navList.classList.contains('active')) {
@@ -142,7 +141,7 @@ function handleParallax() {
 
 document.addEventListener('DOMContentLoaded', handleParallax);
 function openAdvancedPopup(videoId) {
-  document.getElementById('kursus-advanced-iframe').src = `https://www.youtube.com/embed/${videoId}`;
+  document.getElementById('kursus-advanced-iframe').src = `https://www.youtube.com/embed/${videoId}?rel=0&showinfo=0`;
   document.getElementById('kursus-advanced-popup').style.display = 'block';
   document.body.style.overflow = 'hidden';
 }
