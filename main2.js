@@ -1,3 +1,126 @@
+// ... kode sebelumnya ...
+
+// Fungsi untuk menampilkan pesan peringatan
+function tampilkanPeringatan(pesan) {
+    alert(pesan);
+}
+
+// Mencegah klik kanan
+document.addEventListener('contextmenu', function(e) {
+    e.preventDefault();
+    tampilkanPeringatan("Klik kanan dinonaktifkan pada halaman ini.");
+});
+
+// Mencegah penggunaan F12 dan shortcut keyboard lainnya
+document.addEventListener('keydown', function(e) {
+    // Mencegah F12
+    if(e.key == 'F12' || e.keyCode == 123) {
+        e.preventDefault();
+        tampilkanPeringatan("Penggunaan F12 dinonaktifkan pada halaman ini.");
+        return false;
+    }
+    // Mencegah Ctrl+Shift+I (Chrome DevTools)
+    if(e.ctrlKey && e.shiftKey && (e.key == 'I' || e.keyCode == 73)) {
+        e.preventDefault();
+        tampilkanPeringatan("Penggunaan Ctrl+Shift+I dinonaktifkan pada halaman ini.");
+        return false;
+    }
+    // Mencegah Ctrl+U (View Source)
+    if(e.ctrlKey && (e.key == 'U' || e.keyCode == 85)) {
+        e.preventDefault();
+        tampilkanPeringatan("Penggunaan Ctrl+U dinonaktifkan pada halaman ini.");
+        return false;
+    }
+    // Mencegah Ctrl+C (Copy)
+    if(e.ctrlKey && (e.key == 'C' || e.keyCode == 67)) {
+        e.preventDefault();
+        tampilkanPeringatan("Penyalinan konten dinonaktifkan pada halaman ini.");
+        return false;
+    }
+    // Mencegah Ctrl+V (Paste)
+    if(e.ctrlKey && (e.key == 'V' || e.keyCode == 86)) {
+        e.preventDefault();
+        tampilkanPeringatan("Penempelan konten dinonaktifkan pada halaman ini.");
+        return false;
+    }
+});
+
+// Mencegah copy
+document.addEventListener('copy', function(e) {
+    e.preventDefault();
+    tampilkanPeringatan("Penyalinan konten dinonaktifkan pada halaman ini.");
+    return false;
+});
+
+// Mencegah paste
+document.addEventListener('paste', function(e) {
+    e.preventDefault();
+    tampilkanPeringatan("Penempelan konten dinonaktifkan pada halaman ini.");
+    return false;
+});
+
+// Mencegah pemilihan teks
+document.addEventListener('selectstart', function(e) {
+    e.preventDefault();
+    tampilkanPeringatan("Pemilihan teks dinonaktifkan pada halaman ini.");
+    return false;
+});
+
+// Mencegah drag and drop
+document.addEventListener('dragstart', function(e) {
+    e.preventDefault();
+    tampilkanPeringatan("Drag and drop dinonaktifkan pada halaman ini.");
+    return false;
+});
+
+// Menonaktifkan developer tools menggunakan interval
+setInterval(function() {
+    if(window.devtools.isOpen) {
+        window.location.href = "about:blank";
+    }
+}, 1000);
+
+// Mendeteksi jika developer tools dibuka
+(function() {
+    var devtools = {
+        isOpen: false,
+        orientation: undefined
+    };
+    var threshold = 160;
+    var emitEvent = function(isOpen, orientation) {
+        window.dispatchEvent(new CustomEvent('devtoolschange', {
+            detail: {
+                isOpen: isOpen,
+                orientation: orientation
+            }
+        }));
+    };
+
+    setInterval(function() {
+        var widthThreshold = window.outerWidth - window.innerWidth > threshold;
+        var heightThreshold = window.outerHeight - window.innerHeight > threshold;
+        var orientation = widthThreshold ? 'vertical' : 'horizontal';
+
+        if (!(heightThreshold && widthThreshold) &&
+            ((window.Firebug && window.Firebug.chrome && window.Firebug.chrome.isInitialized) || widthThreshold || heightThreshold)) {
+            if (!devtools.isOpen || devtools.orientation !== orientation) {
+                emitEvent(true, orientation);
+            }
+            devtools.isOpen = true;
+            devtools.orientation = orientation;
+        } else {
+            if (devtools.isOpen) {
+                emitEvent(false, undefined);
+            }
+            devtools.isOpen = false;
+            devtools.orientation = undefined;
+        }
+    }, 500);
+
+    window.devtools = devtools;
+})();
+
+// ... kode selanjutnya ...
 function toggleNav() {
     var navList = document.getElementById('nav-list');
     if (navList.classList.contains('active')) {
