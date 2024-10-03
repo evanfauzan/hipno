@@ -59,12 +59,12 @@ document.addEventListener('paste', function(e) {
     return false;
 });
 
-// Mencegah pemilihan teks
-document.addEventListener('selectstart', function(e) {
-    e.preventDefault();
-    tampilkanPeringatan("Pemilihan teks dinonaktifkan pada halaman ini.");
-    return false;
-});
+// // Mencegah pemilihan teks
+// document.addEventListener('selectstart', function(e) {
+//     e.preventDefault();
+//     tampilkanPeringatan("Pemilihan teks dinonaktifkan pada halaman ini.");
+//     return false;
+// });
 
 // Mencegah drag and drop
 document.addEventListener('dragstart', function(e) {
