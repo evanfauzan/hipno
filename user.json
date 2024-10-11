@@ -1,0 +1,29 @@
+{
+  "users": [
+    {
+      "username": "advance",
+      "password": "jiwahipnotis",
+      "accessLevel": 1
+    },
+    {
+      "username": "master",
+      "password": "bertanggungjawab",
+      "accessLevel": 2
+    },
+    {
+      "username": "instruktur",
+      "password": "menjaditeladan",
+      "accessLevel": 3
+    },
+    {
+      "username": "evan",
+      "password": "fauzan123",
+      "accessLevel": 3
+    },
+    {
+      "username": "zidan",
+      "password": "amiin",
+      "accessLevel": 2
+    }
+  ]
+}

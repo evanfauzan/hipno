@@ -1,11 +1,17 @@
 let isLoggedIn = false;
+let users = {};
 
-// Menyimpan pengguna dan kata sandi dengan hashing (simulasi)
-const users = {
-  advance: 'jiwahipnotis', // Hash: e.g., hash('jiwahipnotis')
-  master: 'bertanggungjawab', // Hash: e.g., hash('bertanggungjawab')
-  instruktur: 'menjaditeladan' // Hash: e.g., hash('menjaditeladan')
-};
+// Mengambil data pengguna dari file JSON
+fetch('user.json')
+  .then(response => response.json())
+  .then(data => {
+    users = data.users.reduce((acc, user) => {
+      acc[user.username] = { password: user.password, accessLevel: user.accessLevel };
+      return acc;
+    }, {});
+    initializeLoginStatus();
+  })
+  .catch(error => console.error('Error fetching user data:', error));
 
 // Menunjukkan popup login
 function showLoginPopup() {
@@ -43,8 +49,8 @@ function login() {
 
 // Autentikasi pengguna
 function authenticateUser(username, password) {
-  if (users[username] && users[username] === password) {
-    return Object.keys(users).indexOf(username) + 1; // 1-based access level
+  if (users[username] && users[username].password === password) {
+    return users[username].accessLevel; // Mengembalikan level akses
   }
   return null;
 }
